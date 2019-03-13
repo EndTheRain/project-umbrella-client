@@ -4,7 +4,7 @@ from util import url, auth, setStatus, msTime, queueReturn, dequeueReturn
 def returnUmb(umbId):
 	try:
 		payload = {'returnAt': msTime()}
-		req = requests(url + '/umbrellas/' + umbId + '/return', data=payload, headers=auth)
+		req = requests(url + '/umbrellas/' + umbId + '/return', data=payload, auth=auth)
 		if req.status == 200:
 			dequeueReturn(umbId)
 		else:

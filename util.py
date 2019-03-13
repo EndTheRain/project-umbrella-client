@@ -1,12 +1,13 @@
 import os, redis
+from requests.auth import HTTPBasicAuth
 
-db_host = os.environ['ENDTHERAIN_DB_URL']
-db_port = os.environ['ENDTHERAIN_DB_PORT']
-db_password = os.environ['ENDTHERAIN_DB_PASSWORD']
+db_host = os.environ['ETR_DB_URL']
+db_port = os.environ['ETR_DB_PORT']
+db_password = os.environ['ETR_DB_PASSWORD']
 db = redis.Redis(host=db_host, port=db_port, password=db_password)
 
-url = os.environ['ENDTHERAIN_API_URL']
-auth = {'Authorization': os.environ['ENDTHERAIN_API_KEY']}
+url = os.environ['ETR_API_URL']
+auth = HTTPBasicAuth(os.environ['ETR_DISP_ID'], os.environ['ETR_SECRET'])
 
 online = False
 

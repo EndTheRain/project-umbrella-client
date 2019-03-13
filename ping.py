@@ -3,7 +3,7 @@ from util import url, auth, setStatus
 
 def ping():
 	try:
-		req = requests.get(url + 'dispensers/ping', headers=auth)
+		req = requests.get(url + 'dispensers/ping', auth=auth)
 		if req.status_code == 200:
 			setStatus(True)
 		else

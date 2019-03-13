@@ -4,7 +4,7 @@ from util import url, auth, setStatus
 def borrowUmb(cardId, umbId):
 	try:
 		payload = {'cardId': cardId}
-		req = requests(url + '/umbrellas/' + umbId + '/borrow', data=payload, headers=auth)
+		req = requests(url + '/umbrellas/' + umbId + '/borrow', data=payload, auth=auth)
 		if req.status == 200:
 			# TODO: actually dispense the umbrella
 		else:
